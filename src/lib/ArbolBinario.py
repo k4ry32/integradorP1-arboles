@@ -7,7 +7,11 @@ class Nodo:
 
     def __str__(self):
         # Muestra el apellido del nodo y la cantidad de personas asociadas
-        return f"Nodo Apellido: '{self.apellido}' ({len(self.personas)} personas)"
+        print("\n")
+        print(f"Apellido: '{self.apellido}' ({len(self.personas)} personas)")
+        for persona in self.personas:
+            print(f"- {persona}")
+        return ""
     
 class ArbolBinario:
     def __init__(self):
@@ -18,6 +22,7 @@ class ArbolBinario:
         if self.raiz is None:
             return "Arbol vacio"
         else:
+            print("Arbol completo:")
             return self.mostrarInordenRecursivo(self.raiz)
 
     def insertarNodo(self, apellido):
@@ -67,9 +72,9 @@ class ArbolBinario:
         if nodo is not None: nodo.personas.append(persona)
 
     def mostrarInordenRecursivo(self, nodo):
-        # Se procesa el nodo izquierdo, se muestra el nodo actual y se procesa el nodo derecho
-        # Queda una representación en orden asciendente
+        # Se procesa el nodo izquierdo, se muestra el nodo actual (con sus personas) y se procesa el nodo derecho
+        # Queda una representación en orden ascendente
         if nodo is not None:
-            return self.mostrarInordenRecursivo(nodo.izquierda) + "\n" + nodo.__str__() + "\n" + self.mostrarInordenRecursivo(nodo.derecha)
+            return self.mostrarInordenRecursivo(nodo.izquierda) + str(nodo) + self.mostrarInordenRecursivo(nodo.derecha)
         else:
             return ""
