@@ -105,3 +105,18 @@ class ArbolBinario:
             else:
                 print("No se encontró el nombre indicado")
     
+    def buscarPersona(self,nodo):
+        apellido=input("Ingrese el apellido a buscar: ")
+        posicion=self.buscarNodoRecursivo(nodo,apellido)
+        if posicion!=None:
+            nombre=input("Ingrese el nombre: ")
+            encontrado=None
+            for persona in posicion.personas:
+                if persona.nombre==nombre:
+                    encontrado=persona 
+            if encontrado!=None:
+                print(encontrado)
+            else:
+                print("No se encontro el nombre")
+        else:
+            print("No se encontro el apellido")
