@@ -47,9 +47,9 @@ def main():
                 print(arbol)
 
             case 3:
-                apellido = input("Ingrese el apellido de la persona que desea borrar: ")
+                #apellido = input("Ingrese el apellido de la persona que desea borrar: ")
                 # Agregar funcion para borrar persona
-                
+                arbol.borrarPersona(arbol.raiz)
             case 4:
                 apellido = input("Ingrese el apellido de la persona que desea buscar: ")
                 #  Agregar funcion para buscar persona
