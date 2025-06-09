@@ -52,8 +52,12 @@ class ArbolBinario:
                 # se avanza hacia la derecha y se repite el proceso
                 self.insertarNodoRecursivo(nodo.derecha, apellido)
 
+
     def buscarNodoRecursivo(self, nodo, apellido):
-        if nodo is None:
+        #Busca un nodo de forma recusiva en base al apellido, y devuelve una referencia al nodo
+        #Si al terminar de recorrer todos los nodos, el nodo que se busca sigue siendo None (indicio de que no se encontro)
+        #Se devuelve None
+        if nodo == None:
             return None
         elif nodo.apellido == apellido:
             return nodo
@@ -62,6 +66,7 @@ class ArbolBinario:
         else:
             return self.buscarNodoRecursivo(nodo.derecha, apellido)
 
+        
     def agregarPersona(self, persona):
         nodo = self.buscarNodoRecursivo(self.raiz, persona.apellido)
 
@@ -78,3 +83,25 @@ class ArbolBinario:
             return self.mostrarInordenRecursivo(nodo.izquierda) + str(nodo) + self.mostrarInordenRecursivo(nodo.derecha)
         else:
             return ""
+        
+
+    def borrarPersona(self,nodo):
+        #Borrar personas por apellido y nombre
+        apellidoABuscar=input("Ingrese el apellido de la persona a eliminar: ")
+        posicion=self.buscarNodoRecursivo(nodo,apellidoABuscar)
+        if posicion==None:
+            print("No se encuentra el apellido")
+        else:
+            encontrado = None
+            nombre=input("Ingrese el nombre a borrar: ")
+            for persona in posicion.personas:
+                if persona.nombre == nombre:
+                    encontrado = persona
+                    break
+
+            if encontrado!= None:
+                posicion.personas.remove(encontrado)
+                print("¡Eliminado!")
+            else:
+                print("No se encontró el nombre indicado")
+    
