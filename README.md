@@ -58,3 +58,4 @@ Implementación de un Árbol de Búsqueda Binaria para búsqueda y ordenamiento 
 ---
 
 ### 📼 Enlace al video
+https://youtu.be/1Pq-vDNRNqw
